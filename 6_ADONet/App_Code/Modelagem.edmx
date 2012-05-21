@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CURSOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CURSOModelStoreContainer">
+          <EntitySet Name="TB_DESENVOLVEDOR" EntityType="CURSOModel.Store.TB_DESENVOLVEDOR" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TB_LINGUAGEM" EntityType="CURSOModel.Store.TB_LINGUAGEM" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TB_STATUS" EntityType="CURSOModel.Store.TB_STATUS" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TB_DESENVOLVEDOR_TB_STATUS" Association="CURSOModel.Store.FK_TB_DESENVOLVEDOR_TB_STATUS">
+            <End Role="TB_STATUS" EntitySet="TB_STATUS" />
+            <End Role="TB_DESENVOLVEDOR" EntitySet="TB_DESENVOLVEDOR" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TB_DESENVOLVEDOR">
+          <Key>
+            <PropertyRef Name="ID_DESENVOLVEDOR" />
+          </Key>
+          <Property Name="ID_DESENVOLVEDOR" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NM_DESENVOLVEDOR" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ID_STATUS" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_LINGUAGEM">
+          <Key>
+            <PropertyRef Name="ID_LINGUAGEM" />
+          </Key>
+          <Property Name="ID_LINGUAGEM" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NM_LINGUAGEM" Type="varchar" Nullable="false" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TB_STATUS">
+          <Key>
+            <PropertyRef Name="ID_STATUS" />
+          </Key>
+          <Property Name="ID_STATUS" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NM_STATUS" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_TB_DESENVOLVEDOR_TB_STATUS">
+          <End Role="TB_STATUS" Type="CURSOModel.Store.TB_STATUS" Multiplicity="1" />
+          <End Role="TB_DESENVOLVEDOR" Type="CURSOModel.Store.TB_DESENVOLVEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_STATUS">
+              <PropertyRef Name="ID_STATUS" />
+            </Principal>
+            <Dependent Role="TB_DESENVOLVEDOR">
+              <PropertyRef Name="ID_STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CURSOModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CURSOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_DESENVOLVEDOR" EntityType="CURSOModel.TB_DESENVOLVEDOR" />
+          <EntitySet Name="TB_LINGUAGEM" EntityType="CURSOModel.TB_LINGUAGEM" />
+          <EntitySet Name="TB_STATUS" EntityType="CURSOModel.TB_STATUS" />
+          <AssociationSet Name="FK_TB_DESENVOLVEDOR_TB_STATUS" Association="CURSOModel.FK_TB_DESENVOLVEDOR_TB_STATUS">
+            <End Role="TB_STATUS" EntitySet="TB_STATUS" />
+            <End Role="TB_DESENVOLVEDOR" EntitySet="TB_DESENVOLVEDOR" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TB_DESENVOLVEDOR">
+          <Key>
+            <PropertyRef Name="ID_DESENVOLVEDOR" />
+          </Key>
+          <Property Type="Int32" Name="ID_DESENVOLVEDOR" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NM_DESENVOLVEDOR" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_STATUS" Nullable="false" />
+          <NavigationProperty Name="TB_STATUS" Relationship="CURSOModel.FK_TB_DESENVOLVEDOR_TB_STATUS" FromRole="TB_DESENVOLVEDOR" ToRole="TB_STATUS" />
+        </EntityType>
+        <EntityType Name="TB_LINGUAGEM">
+          <Key>
+            <PropertyRef Name="ID_LINGUAGEM" />
+          </Key>
+          <Property Type="Int32" Name="ID_LINGUAGEM" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NM_LINGUAGEM" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TB_STATUS">
+          <Key>
+            <PropertyRef Name="ID_STATUS" />
+          </Key>
+          <Property Type="Int32" Name="ID_STATUS" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NM_STATUS" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_DESENVOLVEDOR" Relationship="CURSOModel.FK_TB_DESENVOLVEDOR_TB_STATUS" FromRole="TB_STATUS" ToRole="TB_DESENVOLVEDOR" />
+        </EntityType>
+        <Association Name="FK_TB_DESENVOLVEDOR_TB_STATUS">
+          <End Type="CURSOModel.TB_STATUS" Role="TB_STATUS" Multiplicity="1" />
+          <End Type="CURSOModel.TB_DESENVOLVEDOR" Role="TB_DESENVOLVEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_STATUS">
+              <PropertyRef Name="ID_STATUS" />
+            </Principal>
+            <Dependent Role="TB_DESENVOLVEDOR">
+              <PropertyRef Name="ID_STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CURSOModelStoreContainer" CdmEntityContainer="CURSOEntities">
+          <EntitySetMapping Name="TB_DESENVOLVEDOR">
+            <EntityTypeMapping TypeName="CURSOModel.TB_DESENVOLVEDOR">
+              <MappingFragment StoreEntitySet="TB_DESENVOLVEDOR">
+                <ScalarProperty Name="ID_STATUS" ColumnName="ID_STATUS" />
+                <ScalarProperty Name="NM_DESENVOLVEDOR" ColumnName="NM_DESENVOLVEDOR" />
+                <ScalarProperty Name="ID_DESENVOLVEDOR" ColumnName="ID_DESENVOLVEDOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_LINGUAGEM">
+            <EntityTypeMapping TypeName="CURSOModel.TB_LINGUAGEM">
+              <MappingFragment StoreEntitySet="TB_LINGUAGEM">
+                <ScalarProperty Name="NM_LINGUAGEM" ColumnName="NM_LINGUAGEM" />
+                <ScalarProperty Name="ID_LINGUAGEM" ColumnName="ID_LINGUAGEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_STATUS">
+            <EntityTypeMapping TypeName="CURSOModel.TB_STATUS">
+              <MappingFragment StoreEntitySet="TB_STATUS">
+                <ScalarProperty Name="NM_STATUS" ColumnName="NM_STATUS" />
+                <ScalarProperty Name="ID_STATUS" ColumnName="ID_STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Modelagem">
+        <EntityTypeShape EntityType="CURSOModel.TB_DESENVOLVEDOR" Width="2.25" PointX="3" PointY="0.875" Height="1.5923063151041665" />
+        <EntityTypeShape EntityType="CURSOModel.TB_LINGUAGEM" Width="2.125" PointX="0.5" PointY="3.25" Height="1.2636116536458317" />
+        <EntityTypeShape EntityType="CURSOModel.TB_STATUS" Width="1.75" PointX="0.5" PointY="0.75" Height="1.4279589843749996" />
+        <AssociationConnector Association="CURSOModel.FK_TB_DESENVOLVEDOR_TB_STATUS" >
+          <ConnectorPoint PointX="2.25" PointY="1.5264794921874998" />
+          <ConnectorPoint PointX="3" PointY="1.5264794921874998" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

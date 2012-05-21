@@ -1,0 +1,16 @@
+﻿.styLabel
+{
+    font-family: 'Arial Unicode MS';
+    font-size: large;
+    font-weight: 100;
+}
+
+.styTextBox
+{
+    font-size: x-large;
+}
+
+.styButton
+{
+    color: #FF00FF;
+}

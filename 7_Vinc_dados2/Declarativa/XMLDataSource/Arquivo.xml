@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<DESENVOLVEDORES>
+  <DESENVOLVEDOR Codigo="1" Nome="Leonardo" Email="LeonardoBoard@Gmail.com"/>
+  <DESENVOLVEDOR Codigo="2" Nome="Filipe" Email="Filipe@Gmail.com"/>
+  <DESENVOLVEDOR Codigo="3" Nome="Matheus" Email="Matheus@Gmail.com"/>
+  <DESENVOLVEDOR Codigo="4" Nome="Ronaldo" Email="Ronaldo@Gmail.com"/>
+</DESENVOLVEDORES>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap>
+  <siteMapNode title="Home"
+               description="Home"
+               url="~/default.aspx">
+
+    <siteMapNode title="Produtos"
+                 description="Nossos Produtos"
+                 url="~/Declarativa/SITEMAPDataSource/Produtos.aspx">
+
+      <siteMapNode title="Hardwares"
+                   description="Nossos Hardwares"
+                   url="~/Declarativa/SITEMAPDataSource/Hardware.aspx"/>
+
+      <siteMapNode title="Softwares"
+                   description="Nossos Softwares"
+               url="~/Declarativa/SITEMAPDataSource/Software.aspx" />
+
+    </siteMapNode>
+
+    <siteMapNode title="Serviços" description="Serviços que Oferecemos"
+              url="~/Declarativa/SITEMAPDataSource/Servicos.aspx">
+      <siteMapNode title="Treinamentos" description="Nossos Treinamentos"
+              url="~/Declarativa/SITEMAPDataSource/Treinamentos.aspx" />
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

@@ -1,0 +1,19 @@
+﻿.styLabel
+{
+    background-color: Yellow;  
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.styTextBox
+{
+    background-color: Yellow;  
+    border: 2px solid red;
+    font-size: 30px;
+}
+
+.styButton
+{
+    background-color: Yellow;  
+    border: 3px solid blue;
+}

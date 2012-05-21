@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Principal.master.cs" Inherits="Mestre_Principal" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:Menu ID="Menu1" runat="server" BackColor="#E3EAEB" 
+            DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
+            ForeColor="#666666" Orientation="Horizontal" StaticSubMenuIndent="10px">
+            <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <DynamicMenuStyle BackColor="#E3EAEB" />
+            <DynamicSelectedStyle BackColor="#1C5E55" />
+            <Items>
+                <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                <asp:MenuItem Text="Módulos" Value="Módulos">
+                    <asp:MenuItem Text="Cliente" Value="Cliente" 
+                        NavigateUrl="~/Filho/Clientes.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Fornecedor" Value="Fornecedor" 
+                        NavigateUrl="~/Filho/Fornecedores.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Financeiro" Value="Financeiro" 
+                        NavigateUrl="~/Filho/Financeiro.aspx"></asp:MenuItem>
+                </asp:MenuItem>
+            </Items>
+            <StaticHoverStyle BackColor="#666666" ForeColor="White" />
+            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <StaticSelectedStyle BackColor="#1C5E55" />
+        </asp:Menu>
+        <br />
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

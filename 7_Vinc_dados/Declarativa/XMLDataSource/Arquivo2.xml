@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<TREINAMENTOS>
+
+  <CARREIRA Nome="Banco de Dados">
+    <CURSO Nome="SQL Server"/>
+    <CURSO Nome="Oracle"/>
+    <CURSO Nome="MySQL"/>
+  </CARREIRA>
+
+  <CARREIRA Nome="Programação">
+    <CURSO Nome=".NET"/>
+    <CURSO Nome="Java"/>
+    <CURSO Nome="Cobol"/>
+  </CARREIRA>
+
+</TREINAMENTOS>
